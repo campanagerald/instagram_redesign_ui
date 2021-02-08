@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CustomButtomAppBar extends StatelessWidget {
+  final int currentSelectedPageIndex;
+
   const CustomButtomAppBar({
     Key key,
+    this.currentSelectedPageIndex,
   }) : super(key: key);
 
   @override
@@ -18,7 +21,9 @@ class CustomButtomAppBar extends StatelessWidget {
                 IconButton(
                   icon: Icon(
                     Icons.home_outlined,
-                    color: Colors.black,
+                    color: currentSelectedPageIndex == 0
+                        ? Colors.pink
+                        : Colors.black,
                   ),
                   onPressed: () {},
                 ),
@@ -27,7 +32,9 @@ class CustomButtomAppBar extends StatelessWidget {
                   child: IconButton(
                     icon: Icon(
                       Icons.search,
-                      color: Colors.black,
+                      color: currentSelectedPageIndex == 1
+                          ? Colors.pink
+                          : Colors.black,
                     ),
                     onPressed: () {},
                   ),
