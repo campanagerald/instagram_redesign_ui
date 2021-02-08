@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:instagram_redesign_ui/src/widgets/custom_bottom_app_bar.dart';
 
 import '../../models/post.dart';
 import '../../models/story.dart';
 import '../../models/user.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/explore_search_bar.dart';
-import '../widgets/fab_bottom_appbar.dart';
 import '../widgets/story_panel.dart';
 import '../widgets/timeline_item.dart';
 
@@ -137,37 +137,8 @@ class _HomePageState extends State<HomePage> {
         ),
         bottomNavigationBar: ClipRRect(
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(16), topRight: Radius.circular(16)),
-          child: BottomNavigationBar(
-            backgroundColor: Colors.white,
-            type: BottomNavigationBarType.fixed,
-            items: [
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.home_outlined,
-                    color: Colors.black,
-                  ),
-                  label: ''),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.search,
-                    color: Colors.black,
-                  ),
-                  label: ''),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.favorite_outline,
-                    color: Colors.black,
-                  ),
-                  label: ''),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.person_outline,
-                    color: Colors.black,
-                  ),
-                  label: '')
-            ],
-          ),
+              topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+          child: CustomButtomAppBar(),
         ),
       ),
     );
