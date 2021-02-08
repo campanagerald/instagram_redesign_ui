@@ -135,14 +135,39 @@ class _HomePageState extends State<HomePage> {
               child: SvgPicture.asset('assets/images/instagram-logo.svg')),
           elevation: 2.0,
         ),
-        bottomNavigationBar: FABBottomAppBar(
-          items: [
-            FABBottomAppBarItem(iconData: Icons.home_outlined, text: ''),
-            FABBottomAppBarItem(iconData: Icons.search, text: ''),
-            FABBottomAppBarItem(iconData: Icons.favorite_outline, text: ''),
-            FABBottomAppBarItem(iconData: Icons.person_outline, text: '')
-          ],
-          notchedShape: CircularNotchedRectangle(),
+        bottomNavigationBar: ClipRRect(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(16), topRight: Radius.circular(16)),
+          child: BottomNavigationBar(
+            backgroundColor: Colors.white,
+            type: BottomNavigationBarType.fixed,
+            items: [
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.home_outlined,
+                    color: Colors.black,
+                  ),
+                  label: ''),
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.search,
+                    color: Colors.black,
+                  ),
+                  label: ''),
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.favorite_outline,
+                    color: Colors.black,
+                  ),
+                  label: ''),
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.person_outline,
+                    color: Colors.black,
+                  ),
+                  label: '')
+            ],
+          ),
         ),
       ),
     );
