@@ -20,18 +20,36 @@ class StoryPanelItem extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.topCenter,
-            child: Container(
-              height: 80,
-              decoration: BoxDecoration(
-                border: Border.all(color: Color(0xff9F8B9F), width: 4),
-                shape: BoxShape.circle,
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(50),
-                child: CachedNetworkImage(
-                  imageUrl: story.user.image,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  height: 80,
+                  width: 80,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    shape: BoxShape.circle,
+                    gradient: !story.canCreateStory
+                        ? LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Colors.pink,
+                              Colors.purple,
+                            ],
+                          )
+                        : null,
+                  ),
                 ),
-              ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(50),
+                  child: CachedNetworkImage(
+                    imageUrl: story.user.image,
+                    height: 70,
+                    width: 70,
+                  ),
+                ),
+              ],
             ),
           ),
           if (story.canCreateStory)
