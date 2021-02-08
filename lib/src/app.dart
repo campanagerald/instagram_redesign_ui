@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'constants.dart';
-import 'pages/home.dart';
+import 'pages/main_page.dart';
 
 class App extends StatelessWidget {
   @override
@@ -15,7 +15,7 @@ class App extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         scaffoldBackgroundColor: kScaffoldBackgroundColor,
       ),
-      home: HomePage(),
+      home: MainPage(),
     );
   }
 }

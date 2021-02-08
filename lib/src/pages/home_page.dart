@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:instagram_redesign_ui/src/widgets/custom_bottom_app_bar.dart';
 
 import '../../models/post.dart';
 import '../../models/story.dart';
 import '../../models/user.dart';
-import '../widgets/custom_app_bar.dart';
 import '../widgets/explore_search_bar.dart';
 import '../widgets/story_panel.dart';
 import '../widgets/timeline_item.dart';
@@ -98,49 +95,31 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: CustomAppBar(),
-        body: Column(
-          children: [
-            StoryPanel(stories: stories),
-            SizedBox(height: 30),
-            ExploreSearchBar(),
-            SizedBox(height: 30),
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: ListView.builder(
-                  itemCount: posts.length,
-                  itemBuilder: (_, index) {
-                    final post = posts[index];
+    return Column(
+      children: [
+        StoryPanel(stories: stories),
+        SizedBox(height: 30),
+        ExploreSearchBar(),
+        SizedBox(height: 30),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: ListView.builder(
+              itemCount: posts.length,
+              itemBuilder: (_, index) {
+                final post = posts[index];
 
-                    return Container(
-                      margin: EdgeInsets.symmetric(vertical: 10),
-                      child: TimelineItem(
-                        post: post,
-                      ),
-                    );
-                  },
-                ),
-              ),
-            )
-          ],
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          tooltip: 'Increment',
-          child: ClipOval(
-              child: SvgPicture.asset('assets/images/instagram-logo.svg')),
-          elevation: 2.0,
-        ),
-        bottomNavigationBar: ClipRRect(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-          child: CustomButtomAppBar(),
-        ),
-      ),
+                return Container(
+                  margin: EdgeInsets.symmetric(vertical: 10),
+                  child: TimelineItem(
+                    post: post,
+                  ),
+                );
+              },
+            ),
+          ),
+        )
+      ],
     );
   }
 }
